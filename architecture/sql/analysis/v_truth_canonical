@@ -1,0 +1,58 @@
+-- ============================================
+-- VIEW: v_truth_canonical
+-- Layer: TRUTH
+-- Purpose: Certified canonical operational truth.
+--
+-- This is the authoritative consumption and spend dataset.
+-- Only rows with verified unit mappings enter here.
+-- The certification gate (v_certified_mappings) prevents
+-- unverified or drifted mappings from corrupting analytics.
+--
+-- Joins:
+--   v_canonical_imports     — normalised event layer
+--   v_certified_mappings    — certification gate
+--   product_master          — canonical identity and taxonomy
+--
+-- Excludes:
+--   uncertified mappings
+--   unmapped SKUs
+--   identity breaks
+-- ============================================
+
+SELECT
+    c.id,
+    c.order_date,
+    c.supplier,
+    c.sku,
+    c.product_code,
+    p.product_name,
+    p.category,
+    p.subcategory,
+    p.department,
+    c.canonical_quantity,
+    c.canonical_unit,
+    c.unit_cost,
+    c.total_cost
+
+FROM v_canonical_imports c
+
+JOIN v_certified_mappings m
+    ON  c.product_code::text = m.product_code
+    AND c.supplier::text     = m.supplier
+    AND (
+            c.sku::text = m.sku
+            OR (c.sku IS NULL AND m.sku IS NULL)
+        )
+    AND c.unit_size::text    = m.unit_size
+
+JOIN product_master p
+    ON p.code::text = c.product_code::text;
+```
+
+**Now add it to GitHub:**
+
+Click **Add file** → **Create new file**
+
+Filename:
+```
+sql/truth/v_truth_canonical.sql
