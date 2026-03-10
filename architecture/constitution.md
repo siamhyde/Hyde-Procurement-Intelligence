@@ -2,7 +2,10 @@
 
 ## Hyde Procurement Intelligence Backend Authority
 
-This document is not commentary.
+> This document serves as both architectural doctrine and 
+> AI agent governance — defining system behaviour, 
+> layer boundaries, and canonical truth rules.
+
 This is the operating constitution of the backend authority.
 
 It defines canonical truth, behavioural modelling, and execution doctrine.
