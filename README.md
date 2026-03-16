@@ -3,15 +3,15 @@
 I was the Kitchen Manager. I lived the friction firsthand.
 
 Operating under uncertainty is the norm: 
-Trying to make sure the kitchen has enough for the week, avoiding under-ordering, avoiding over-ordering, 
-and making decisions fast in an environment that rarely gives you clean signals.
+Trying to make sure the kitchen has enough for the week, under-ordering, over-ordering, 
+fast decisions in an environment that rarely gives you clean signals.
 
 In hospitality SMBs, you are focused on surviving, not optimising.
 
-> Systems substituted with intuition.  
-> Decisions made from memory, habit and experience.
+> Systems are substituted with intuition.  
+> Decisions are made from memory, habit and experience.
 
-The data to do better already exists. 
+Howeverm, the data to do better already exists. 
 It is buried across supplier invoices, fragmented by product naming, pack sizes, and supplier-specific formats.
 
 Hyde is the system I built to turn that fragmented purchasing data into a deterministic procurement baseline.
@@ -22,7 +22,9 @@ Hyde is the system I built to turn that fragmented purchasing data into a determ
 
 In a kitchen, the absence of a system is felt every week: working out what to order, how much to order, and how to translate that judgment across suppliers who sell the same product in different formats.
 
-Something as ordinary as cheddar cheese becomes harder to reason about than it should be. One supplier sells 450g, 500g, or 750g packs. Another sells a 4.5kg block. Without a baseline, every change forces the operator to recalculate quantities in their head.
+Something as ordinary as cheddar cheese becomes harder to reason about than it should be. 
+One supplier sells 450g, 500g, or 750g packs. Another sells a 4.5kg block. Without a baseline, 
+every change forces the operator to recalculate quantities in their head.
 
 That burden does not just create stress. It prevents the business from accumulating reliable purchasing intelligence, leaving decisions trapped in memory, habit, and whoever happens to know the operation best.
 
