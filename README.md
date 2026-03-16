@@ -112,8 +112,6 @@ Full topology manifest → [architecture/topology.md](architecture/topology.md)
 
 ## Key Technical Decisions
 
-## Key Technical Decisions
-
 **Canonical identity over supplier SKUs**  
 Suppliers assign different SKUs to the same physical product. Hyde consolidates these into stable product identities, enabling consistent tracking across suppliers and over time.
 
