@@ -29,6 +29,7 @@ In a kitchen, the absence of a system is felt every week:
 Something as arbitrary as cheddar cheese becomes harder to reason about than it should be:
 
 One supplier sells 450g, 500g, or 750g packs. Another sells a 4.5kg block. 
+
 Without a baseline, every change forces the operator to recalculate quantities in their head.
 
 That does not just create stress, It prevents the business from accumulating reliable purchasing intelligence. 
