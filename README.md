@@ -26,7 +26,9 @@ Something as ordinary as cheddar cheese becomes harder to reason about than it s
 
 That burden does not just create stress. It prevents the business from accumulating reliable purchasing intelligence, leaving decisions trapped in memory, habit, and whoever happens to know the operation best.
 
-In a high-churn industry, that becomes a structural vulnerability. Each handover risks resetting the kitchen back to intuition.
+> In a high-churn industry, that becomes a structural vulnerability.
+
+Each handover risks resetting the kitchen back to intuition.
 
 Now multiply that across 400 products, 3 suppliers, and 4,700 transactions.
 
