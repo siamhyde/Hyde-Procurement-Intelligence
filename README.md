@@ -3,7 +3,7 @@
 I was the Kitchen Manager. I lived the friction firsthand.
 
 Operating under uncertainty is the norm: 
-trying to make sure the kitchen has enough for the week, avoiding under-ordering, avoiding over-ordering, 
+Trying to make sure the kitchen has enough for the week, avoiding under-ordering, avoiding over-ordering, 
 and making decisions fast in an environment that rarely gives you clean signals.
 
 In hospitality SMBs, you are focused on surviving, not optimising.
@@ -52,14 +52,13 @@ When people leave, that baseline does not leave with them. The next operator inh
 
 Hyde began in Google Sheets, moved to Coda, then Bubble, with each version rebuilt from scratch as the limitations of the previous one became clear.
 
-
-Google Sheets made collaboration easy, but it did not scale,
-Coda improved the interface, but exposed governance risks: the system was too easy to accidentally edit, break, or delete,
-Bubble offered more flexibility, but introduced platform and legal constraints that made it the wrong long-term foundation,
+- Google Sheets made collaboration easy, but it did not scale. 
+- Coda improved the interface, but exposed governance risks: the system was too easy to accidentally edit, break, or delete.
+- Bubble offered more flexibility, but introduced platform and legal constraints that made it the wrong long-term foundation.
 
 Those pivots clarified what Hyde actually required: 
 
-a system with stable data governance, deterministic backend logic, and full control over the application layer.
+A system with stable data governance, deterministic backend logic, and full control over the application layer.
 
 The final stack - PostgreSQL, Supabase, and Next.js - was the result of that convergence. 
 
