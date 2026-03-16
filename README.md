@@ -16,25 +16,6 @@ Hyde is the system I built to turn that fragmented purchasing data into a determ
 
 ---
 
-I was the Kitchen Manager. I lived the friction firsthand.
-
-Operating under uncertainty is the norm: 
-
-hoping the kitchen has enough for the week, accidentally under-ordering, 
-over-ordering, fast decisions in an environment that rarely gives you clean signals.
-
-In hospitality SMB's, you are focused on surviving, not optimising.
-
-> Systems are often substituted with intuition.  
-> Decisions are made from memory, habit and experience.
-
-The data to do better already exists. 
-It is buried across supplier invoices, fragmented by product naming, pack sizes, and supplier-specific formats.
-
-Hyde is the system I built to turn that fragmented purchasing data into a deterministic procurement baseline.
-
----
-
 ## The Problem
 
 In a kitchen, the absence of a system is felt every week.
