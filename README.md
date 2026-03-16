@@ -31,9 +31,12 @@ With experience, you develop intuition. But intuition is not a system - it is a 
 
 > In a high-churn industry, that becomes a structural vulnerability.
 
-Each handover risks resetting the kitchen back to intuition. The knowledge does not transfer because it was never captured - it lived in someone's head.
+Each handover risks resetting the kitchen back to 
+intuition. The knowledge does not transfer because 
+it was never captured — it lived in someone's head.
 
-Now multiply that across 400 products, 3 suppliers, and 4,700 transactions.
+Now multiply that across 400 products, 3 suppliers, 
+and 4,700 transactions.
 
 ---
 
