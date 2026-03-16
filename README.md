@@ -129,25 +129,17 @@ rebuildable from canonical truth.
 
 ## Key Technical Decisions
 
-**Canonical identity over supplier SKUs**
-Suppliers assign different SKUs to the same physical product. 
-Hyde consolidates these into stable product identities, enabling 
-consistent tracking across suppliers and over time.
+**Canonical identity over supplier SKUs**  
+Suppliers assign different SKUs to the same physical product. Hyde consolidates these into stable product identities, enabling consistent tracking across suppliers and over time.
 
-**Physical unit normalisation**
-All quantities resolve to physical base units (kg, L, units, m, m²). 
-Pack abstractions are excluded from canonical truth, preventing 
-silent comparison errors when supplier packaging changes.
+**Physical unit normalisation**  
+All quantities resolve to physical base units (kg, L, units, m, m²). Pack abstractions are excluded from canonical truth, preventing silent comparison errors when supplier packaging changes.
 
-**Behavioural ordering over static reorder points**
-The replenishment layer uses rolling consumption metrics and anomaly 
-detection to distinguish temporary bulk purchases from genuine demand 
-shifts, reducing false baseline recalibration.
+**Behavioural ordering over static reorder points**  
+The replenishment layer uses rolling consumption metrics and anomaly detection to distinguish temporary bulk purchases from genuine demand shifts, reducing false baseline recalibration.
 
-**Certification gate**
-Only verified unit mappings enter canonical truth. Unverified 
-mappings are excluded from production analytics, preventing 
-silent data quality drift.
+**Certification gate**  
+Only verified unit mappings enter canonical truth. Unverified mappings are excluded from production analytics, preventing silent data-quality drift.
 
 ---
 
