@@ -25,13 +25,13 @@ In a kitchen, the absence of a system is felt every week.
 
 Something as ordinary as cheddar cheese becomes harder to reason about than it should be. One supplier sells 450g, 500g, or 750g packs. Another sells a 4.5kg block. Which one? How many?
 
-You are not thinking about optimisation yet — you are trying not to run out. How long will it last? What if you buy too much? What if you run out on a Saturday service?
+You are not thinking about optimisation yet - you are trying not to run out. How long will it last? What if you buy too much? What if you run out on a Saturday service?
 
-With experience, you develop intuition. But intuition is not a system — it is a person.
+With experience, you develop intuition. But intuition is not a system - it is a person.
 
 > In a high-churn industry, that becomes a structural vulnerability.
 
-Each handover risks resetting the kitchen back to intuition. The knowledge does not transfer because it was never captured — it lived in someone's head.
+Each handover risks resetting the kitchen back to intuition. The knowledge does not transfer because it was never captured - it lived in someone's head.
 
 Now multiply that across 400 products, 3 suppliers, and 4,700 transactions.
 
