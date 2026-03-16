@@ -10,7 +10,8 @@ environment that rarely gives you clean signals.
 
 You are focused on surviving, not optimising.
 
-> Systems are substituted with intuition.  
+> Systems are substituted with intuition.
+
 > Decisions are made from memory, habit, and experience.
 
 The data to do better already exists. It is buried across supplier 
