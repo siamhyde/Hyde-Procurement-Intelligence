@@ -1,5 +1,21 @@
 # Hyde Procurement Intelligence
 
+I was the Kitchen Manager, responsible for ordering in an environment where good decisions were expected without good systems underneath them.
+
+In hospitality SMBs, that often means operating under uncertainty: trying to make sure the kitchen has enough for the week 
+without over-ordering, making fast decisions in an environment that rarely gives you clean signals.
+
+You are focused on surviving, not optimising.
+
+> Systems are often substituted with intuition.  
+> Decisions are made from memory, habit, and experience.
+
+The data to do better already exists. It is buried across supplier invoices, fragmented by product naming, pack sizes, and supplier-specific formats.
+
+Hyde is the system I built to turn that fragmented purchasing data into a deterministic procurement baseline.
+
+---
+
 I was the Kitchen Manager. I lived the friction firsthand.
 
 Operating under uncertainty is the norm: 
