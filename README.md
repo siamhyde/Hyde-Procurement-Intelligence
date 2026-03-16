@@ -36,31 +36,15 @@ Now multiply that across 400 products, 3 suppliers, and 4,700 transactions.
 
 ## What Hyde Does
 
-I built this not to replace the operator — but to replace the void.
+Hyde was not built to replace the operator. It was built to replace the void beneath them.
 
-The head chef knows more than any system — the regulars 
-who order the special, the event next Saturday, the 
-supplier whose quality has been slipping. That knowledge 
-is irreplaceable.
+An experienced head chef knows things no system can fully capture: the regulars who order the special, the event next Saturday, the supplier whose quality has been slipping. That judgment matters.
 
-But ask him how many units of tofu he consumes on average 
-per week. His exact reorder cadence mathematically. Whether 
-consumption has been trending upward. Whether three 
-consecutive elevated orders represent a new baseline or 
-just a noisy month.
+What Hyde provides is the part that intuition cannot do reliably: exact consumption baselines, reorder cadence, trend visibility, and a consistent view of whether elevated purchasing reflects genuine demand change or just short-term noise.
 
-He can't answer that. Not precisely. Not consistently.
-Hyde can.
+It does not compete with experience. It gives experience something stable to stand on: a deterministic procurement baseline built from accumulated purchasing data.
 
-I deliberately built this to not step on experience —
-instead, it boringly hides underneath it.
-A deterministic baseline built from math.
-
-When he leaves — which in hospitality, he will —
-the system doesn't leave with him. The next person 
-inherits a foundation instead of starting from zero.
-
-> That's the actual boring problem Hyde solves.
+When people leave, that baseline does not leave with them. The next operator inherits a foundation instead of starting from zero.
 
 ---
 
