@@ -15,27 +15,23 @@ In hospitality SMB's, you are focused on surviving, not optimising.
 The data to do better already exists. 
 It is buried across supplier invoices, fragmented by product naming, pack sizes, and supplier-specific formats.
 
-Hyde is the system I built to turn that fragmented purchasing data into a deterministic procurement baseline for SMB's.
+Hyde is the system I built to turn that fragmented purchasing data into a deterministic procurement baseline.
 
 ---
 
 ## The Problem
 
-In a kitchen, the absence of a system is felt every week: 
+In a kitchen, the absence of a system is felt every week.
 
-Working out what to order, how much to order, then figuring out how to translate that judgment across suppliers.
+Something as ordinary as cheddar cheese becomes harder to reason about than it should be. One supplier sells 450g, 500g, or 750g packs. Another sells a 4.5kg block. Which one? How many?
 
-Something as ordinary as cheddar cheese becomes harder to reason about,
-One supplier sells 450g, 500g, or 750g packs. Another sells a 4.5kg block. 
+You are not thinking about optimisation yet — you are trying not to run out. How long will it last? What if you buy too much? What if you run out on a Saturday service?
 
-Without a baseline, every change forces the operator to recalculate quantities in their head.
-
-That burden does not just create stress, It prevents the business from accumulating reliable purchasing intelligence.
-Decisions are trapped in memory, habit, and whoever happens to know the operation best.
+With experience, you develop intuition. But intuition is not a system — it is a person.
 
 > In a high-churn industry, that becomes a structural vulnerability.
 
-Each handover risks resetting the kitchen back to intuition.
+Each handover risks resetting the kitchen back to intuition. The knowledge does not transfer because it was never captured — it lived in someone's head.
 
 Now multiply that across 400 products, 3 suppliers, and 4,700 transactions.
 
@@ -49,7 +45,7 @@ An experienced head chef knows things no system can fully capture: the regulars 
 
 What Hyde provides is the part that intuition cannot do reliably: exact consumption baselines, reorder cadence, trend visibility, and a consistent way to tell whether elevated purchasing reflects genuine demand change or short-term noise.
 
-It does not compete with experience, it compliments it. 
+It does not compete with experience.
 
 It gives experience something stable to stand on: a deterministic procurement baseline built from accumulated purchasing data.
 
