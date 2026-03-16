@@ -20,11 +20,11 @@ Hyde is the system I built to turn that fragmented purchasing data into a determ
 
 ## The Problem
 
-In a kitchen, the asbence of a system it is felt every week:
+In a kitchen, the absence of a system is felt every week:
 
-Working out whether you have enough for Saturday service, 
-whether this week's order should look like last week's, 
-and how to translate that judgment across suppliers who sell the same product in different formats.
+> Working out whether you have enough for Saturday service, 
+> Whether this week's order should look like last week's,
+> How to translate that judgment across suppliers who sell the same product in different formats.
 
 Something as arbitrary as cheddar cheese becomes harder to reason about than it should be:
 
