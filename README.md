@@ -50,13 +50,20 @@ When people leave, that baseline does not leave with them. The next operator inh
 
 ## The Build
 
-Hyde started on Google Sheets, then Coda, then Bubble.
-Each rebuilt from scratch when the foundation proved wrong.
-Permissions, legal constraints, architectural limits.
-Each pivot felt like a step backwards.
+Hyde began in Google Sheets, moved to Coda, then Bubble, with each version rebuilt from scratch as the limitations of the previous one became clear.
 
-The final stack — PostgreSQL, Supabase, Next.js —
-is a culmination of those failures.
+
+Google Sheets made collaboration easy, but it did not scale. 
+Coda improved the interface, but exposed governance risks: the system was too easy to accidentally edit, break, or delete. 
+Bubble offered more flexibility, but introduced platform and legal constraints that made it the wrong long-term foundation.
+
+Those pivots clarified what Hyde actually required: 
+
+a system with stable data governance, deterministic backend logic, and full control over the application layer.
+
+The final stack - PostgreSQL, Supabase, and Next.js - was the result of that convergence. 
+
+Hyde needed a proper relational backend, SQL-driven transformation logic, and a frontend built on top of a stable operational model rather than low-code compromise.
 
 ---
 
