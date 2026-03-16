@@ -20,23 +20,13 @@ Hyde is the system I built to turn that fragmented purchasing data into a determ
 
 ## The Problem
 
-In a kitchen, the absence of a system is felt every week:
+In a kitchen, the absence of a system is felt every week: working out whether you have enough for Saturday service, whether this week's order should look like last week's, and how to translate that judgment across suppliers who sell the same product in different formats.
 
-- Working out whether you have enough for Saturday service. 
-- Whether this week's order should look like last week's.
-- Suppliers who sell the same product in different formats.
+Something as ordinary as cheddar cheese becomes harder to reason about than it should be. One supplier sells 450g, 500g, or 750g packs. Another sells a 4.5kg block. Without a baseline, every change forces the operator to recalculate quantities in their head.
 
-Something as arbitrary as cheddar cheese becomes harder to reason about than it should be:
+That does not just create stress. It prevents the business from accumulating reliable purchasing intelligence. Decisions stay trapped in memory, habit, and whoever happens to know the operation best.
 
-One supplier sells 450g, 500g, or 750g packs. Another sells a 4.5kg block. 
-
-Without a baseline, every change forces the operator to recalculate quantities in their head.
-
-That does not just create stress, It prevents the business from accumulating reliable purchasing intelligence. 
-Decisions stay trapped in memory, habit, and whoever happens to know the operation best.
-
-In an industry with high staff churn, that becomes a structural vulnerability. 
-When knowledge lives inside people instead of systems, each handover risks resetting the kitchen back to intuition.
+In an industry with high staff churn, that becomes a structural vulnerability. When knowledge lives inside people instead of systems, each handover risks resetting the kitchen back to intuition.
 
 Now multiply that across 400 products, 3 suppliers, and 4,700 transactions.
 
