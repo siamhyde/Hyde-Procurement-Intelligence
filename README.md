@@ -118,8 +118,6 @@ Only verified unit mappings enter canonical truth. Unverified mappings are exclu
 
 ---
 
----
-
 ## Stack
 
 | Layer | Technology |
