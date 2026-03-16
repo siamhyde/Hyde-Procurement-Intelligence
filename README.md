@@ -73,7 +73,7 @@ Built on real business data from a live hospitality operation.
 | Metric | Value |
 |--------|-------|
 | Supplier spend processed | £43,000+ |
-| Real procurement transactions | 4,700+ |
+| Procurement transactions processed | 4,700+ |
 | Canonical product entities | 400+ |
 | Packaging-to-canonical unit mappings | 1,134 |
 | Normalisation coverage | 97% |
@@ -112,28 +112,18 @@ Full topology manifest → [architecture/topology.md](architecture/topology.md)
 
 ## Key Technical Decisions
 
-**Canonical identity over supplier SKUs** — suppliers assign 
-arbitrary SKUs to the same physical product. Hyde consolidates 
-these into stable product identities, enabling consistent 
-tracking across suppliers and over time.
+## Key Technical Decisions
 
-**Physical unit normalisation** — all quantities resolve to 
-physical base units (kg, L, units, m, m²). Pack abstractions 
-are forbidden in canonical truth. This prevents silent 
-comparison errors when supplier packaging changes.
+**Canonical identity over supplier SKUs**  
+Suppliers assign different SKUs to the same physical product. Hyde consolidates these into stable product identities, enabling consistent tracking across suppliers and over time.
 
-**Behavioural ordering over static reorder points** — the 
-replenishment engine uses rolling consumption metrics and 
-anomaly detection to distinguish temporary bulk purchases 
-from genuine demand shifts, avoiding false baseline 
-recalibration.
+**Physical unit normalisation**  
+All quantities resolve to physical base units (kg, L, units, m, m²). Pack abstractions are excluded from canonical truth, preventing silent comparison errors when supplier packaging changes.
 
-**Certification gate** — only verified unit mappings enter 
-canonical truth. Unverified mappings are excluded from all 
-production analytics, preventing silent data quality drift.
+**Behavioural ordering over static reorder points**  
+The replenishment layer uses rolling consumption metrics and anomaly detection to distinguish temporary bulk purchases from genuine demand shifts, reducing false baseline recalibration.
+
+**Certification gate**  
+Only verified unit mappings enter canonical truth. Unverified mappings are excluded from production analytics, preventing silent data-quality drift.
 
 ---
-
-*Built by a Kitchen Manager who experienced the problem 
-firsthand — and couldn't find a system that solved it, 
-so built one from scratch.*
