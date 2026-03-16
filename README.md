@@ -23,22 +23,21 @@ Hyde is the system I built to turn that fragmented purchasing data into a determ
 The absence of a system is not obvious on paper. In a kitchen, it is felt every week.
 
 It shows up as mental arithmetic at the end of a busy shift: 
-trying to work out whether you have enough for Saturday service, 
+
+Working out whether you have enough for Saturday service, 
 whether this week's order should look like last week's, 
-and how to translate that judgment across suppliers who sell the same product in completely different formats.
+and how to translate that judgment across suppliers who sell the same product in different formats.
 
 A product as simple as cheddar cheese becomes harder to reason about than it should be. 
+
 One supplier sells 450g, 500g, or 750g packs. Another sells a 4.5kg block. 
+Without a baseline, every change forces the operator to recalculate quantities in their head.
 
-Every change forces the operator to recalculate quantities in their head, usually while tired and with no reliable baseline underneath them.
-
-Without a system, those decisions are made from memory, habit, and whoever happens to know the operation best. 
-
-The business does not accumulate reliable purchasing intelligence — it keeps re-solving the same decisions instead of learning from them.
+That does not just create stress. It prevents the business from accumulating reliable purchasing intelligence. 
+Decisions stay trapped in memory, habit, and whoever happens to know the operation best.
 
 In an industry with high staff churn, that becomes a structural vulnerability. 
-
-When operational knowledge lives inside people instead of systems, each handover risks resetting the kitchen back to intuition.
+When knowledge lives inside people instead of systems, each handover risks resetting the kitchen back to intuition.
 
 Now multiply that across 400 products, 3 suppliers, and 4,700 transactions.
 
