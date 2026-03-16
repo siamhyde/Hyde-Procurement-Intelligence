@@ -79,11 +79,9 @@ Hyde began in Google Sheets, moved to Coda, then Bubble — each
 version rebuilt from scratch as the limitations of the previous 
 one became clear.
 
-- **Google Sheets** — made collaboration easy, but did not scale.
-- **Coda** — improved the interface, but exposed governance risks: 
-  too easy to accidentally edit, break, or delete.
-- **Bubble** — offered more flexibility, but introduced platform 
-  and legal constraints that made it the wrong long-term foundation.
+- **Google Sheets:** made collaboration easy, but did not scale.
+- **Coda:** improved the interface, but exposed governance risks: too easy to accidentally edit, break, or delete.
+- **Bubble:** offered more flexibility, but introduced platform and legal constraints that made it the wrong long-term foundation.
 
 Those pivots clarified what Hyde actually required: stable data 
 governance, deterministic backend logic, and full control over 
