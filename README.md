@@ -3,8 +3,9 @@
 I was the Kitchen Manager. I lived the friction firsthand.
 
 Operating under uncertainty is the norm: 
-Trying to make sure the kitchen has enough for the week, under-ordering, over-ordering, 
-fast decisions in an environment that rarely gives you clean signals.
+
+trying to make sure the kitchen has enough for the week, under-ordering, 
+over-ordering, fast decisions in an environment that rarely gives you clean signals.
 
 In hospitality SMBs, you are focused on surviving, not optimising.
 
