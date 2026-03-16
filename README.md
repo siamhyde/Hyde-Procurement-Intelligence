@@ -1,44 +1,46 @@
 # Hyde Procurement Intelligence
 
-Entropy is rife in hospitality SMBs — high staff churn, 
-ad-hoc orders, no infrastructure, no data accumulation, 
-no analysis.
+I was the Kitchen Manager. I lived the friction firsthand.
 
-I was the Kitchen Manager. I experienced the friction 
-firsthand. The stress of under-ordering, over-ordering, 
-no deterministic way to know what to order or how much.
+Operating under uncertainty is the norm: 
+trying to make sure the kitchen has enough for the week, avoiding under-ordering, avoiding over-ordering, 
+and making decisions fast in an environment that rarely gives you clean signals.
 
-> Systems substituted with intuition.
+In hospitality SMBs, you are focused on surviving, not optimising.
+
+> Systems substituted with intuition.  
 > Decisions made from memory, habit and experience.
 
-The data to do it better already exists.
-It's just fragmented inside supplier invoices.
+The data to do better already exists. 
+It is buried across supplier invoices, fragmented by product naming, pack sizes, and supplier-specific formats.
 
-So I built the system to surface it.
+Hyde is the system I built to turn that fragmented purchasing data into a deterministic procurement baseline.
 
 ---
 
 ## The Problem
 
-The absence of systems is hard to quantify — but 
-operationally, it's felt.
+The absence of a system is not obvious on paper. In a kitchen, it is felt every week.
 
-You would be surprised how much entropy cheddar cheese 
-carries when you actually live it.
+It shows up as mental arithmetic at the end of a busy shift: 
+trying to work out whether you have enough for Saturday service, 
+whether this week's order should look like last week's, 
+and how to translate that judgment across suppliers who sell the same product in completely different formats.
 
-The mental arithmetic on a busy morning trying to figure 
-out if you have enough for Saturday service. After a long 
-shift: do I buy 4kg from this supplier or 500g from this 
-one? How many quantities? Which is cheaper per kg?
+A product as simple as cheddar cheese becomes harder to reason about than it should be. 
+One supplier sells 450g, 500g, or 750g packs. Another sells a 4.5kg block. 
 
-These questions don't just affect operations — the absence 
-of systems affects the bottom line silently, because 
-operators are focused on surviving, not optimising.
+Every change forces the operator to recalculate quantities in their head, usually while tired and with no reliable baseline underneath them.
 
-Now multiply that across 400 products, 3 suppliers, 
-and 4,700 transactions.
+Without a system, those decisions are made from memory, habit, and whoever happens to know the operation best. 
 
-> That's what Hyde solves.
+The business does not accumulate reliable purchasing intelligence — it keeps re-solving the same decisions instead of learning from them.
+
+In an industry with high staff churn, that becomes a structural vulnerability. 
+
+When operational knowledge lives inside people instead of systems, each handover risks resetting the kitchen back to intuition.
+
+Now multiply that across 400 products, 3 suppliers, and 4,700 transactions.
 
 ---
 
