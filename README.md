@@ -2,12 +2,12 @@
 
 I was the Kitchen Manager, responsible for ordering in an environment where good decisions were expected without good systems underneath them.
 
-In hospitality SMBs, that often means operating under uncertainty: trying to make sure the kitchen has enough for the week 
-without over-ordering, making fast decisions in an environment that rarely gives you clean signals.
+In hospitality SMBs, that often means operating under uncertainty: trying to make sure the kitchen has enough for the week, 
+avoiding under-ordering, over-ordering, and making fast decisions in an environment that rarely gives you clean signals.
 
 You are focused on surviving, not optimising.
 
-> Systems are often substituted with intuition.  
+> Systems are substituted with intuition.
 > Decisions are made from memory, habit, and experience.
 
 The data to do better already exists. It is buried across supplier invoices, fragmented by product naming, pack sizes, and supplier-specific formats.
@@ -22,15 +22,15 @@ In a kitchen, the absence of a system is felt every week.
 
 Something as ordinary as cheddar cheese becomes harder to reason about than it should be. One supplier sells 450g, 500g, or 750g packs. Another sells a 4.5kg block. Which one? How many?
 
-You are not thinking about optimisation yet - you are trying not to run out. How long will it last? What if you buy too much? What if you run out on a Saturday service?
+You are not thinking about optimisation yet - you are trying not to run out. 
+How long will it last? What if you buy too much? What if you run out on a Saturday service?
 
 With experience, you develop intuition. But intuition is not a system - it is a person.
 
 > In a high-churn industry, that becomes a structural vulnerability.
 
-Each handover risks resetting the kitchen back to 
-intuition. The knowledge does not transfer because 
-it was never captured — it lived in someone's head.
+Each handover risks resetting the kitchen back to intuition. 
+The knowledge does not transfer because it was never captured — it lived in someone's head.
 
 Now multiply that across 400 products, 3 suppliers, 
 and 4,700 transactions.
@@ -45,7 +45,7 @@ An experienced head chef knows things no system can fully capture: the regulars 
 
 What Hyde provides is the part that intuition cannot do reliably: exact consumption baselines, reorder cadence, trend visibility, and a consistent way to tell whether elevated purchasing reflects genuine demand change or short-term noise.
 
-It does not compete with experience.
+It does not compete with experience. 
 
 It gives experience something stable to stand on: a deterministic procurement baseline built from accumulated purchasing data.
 
@@ -102,19 +102,6 @@ Full architectural doctrine → [architecture/constitution.md](architecture/cons
 
 Full topology manifest → [architecture/topology.md](architecture/topology.md)
 
----
-
-## Stack
-
-| Layer | Technology |
-|-------|------------|
-| Data layer | PostgreSQL / Supabase |
-| Analytical logic | SQL views |
-| Operational frontend | Next.js |
-| Stakeholder reporting | Power BI |
-
----
-
 ## Key Technical Decisions
 
 **Canonical identity over supplier SKUs**  
@@ -128,5 +115,18 @@ The replenishment layer uses rolling consumption metrics and anomaly detection t
 
 **Certification gate**  
 Only verified unit mappings enter canonical truth. Unverified mappings are excluded from production analytics, preventing silent data-quality drift.
+
+---
+
+---
+
+## Stack
+
+| Layer | Technology |
+|-------|------------|
+| Data layer | PostgreSQL / Supabase |
+| Analytical logic | SQL views |
+| Operational frontend | Next.js |
+| Stakeholder reporting | Power BI |
 
 ---
