@@ -25,7 +25,7 @@ In a kitchen, the absence of a system is felt every week:
 
 Working out what to order, how much to order, then figuring out how to translate that judgment across suppliers.
 
-Something as ordinary as cheddar cheese becomes harder to reason about:
+Something as ordinary as cheddar cheese becomes harder to reason about,
 One supplier sells 450g, 500g, or 750g packs. Another sells a 4.5kg block. 
 
 Without a baseline, every change forces the operator to recalculate quantities in their head.
