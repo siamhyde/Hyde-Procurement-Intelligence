@@ -92,6 +92,75 @@ result of that convergence. Hyde needed a proper relational
 backend, SQL-driven transformation logic, and a frontend built 
 on a stable operational model rather than low-code compromise.
 
+┌───────────────────────┐
+│ 1. SUPPLIER INPUTS    │
+│ Orders, invoices,     │
+│ SKUs, pack sizes, £   │
+└───────────┬───────────┘
+            │
+            ▼
+┌───────────────────────┐
+│ 2. RAW DATA LAYER     │
+│ Store supplier truth  │
+│ exactly as received   │
+└───────────┬───────────┘
+            │
+            ▼
+┌───────────────────────┐
+│ 3. PRODUCT IDENTITY   │
+│ Match rows to stable  │
+│ internal product codes│
+└───────────┬───────────┘
+            │
+            ▼
+┌───────────────────────┐
+│ 4. NORMALISATION      │
+│ Convert packaging to  │
+│ kg / L / unit / m / m2│
+└───────────┬───────────┘
+            │
+            ▼
+┌───────────────────────┐
+│ 5. CERTIFICATION      │
+│ Only verified mapping │
+│ enters trusted logic  │
+└───────────┬───────────┘
+            │
+            ▼
+┌───────────────────────┐
+│ 6. CANONICAL TRUTH    │
+│ Clean, standardised   │
+│ procurement dataset   │
+└───────────┬───────────┘
+            │
+            ▼
+┌───────────────────────┐
+│ 7. BEHAVIOURAL ENGINE │
+│ Cadence, anomalies,   │
+│ lead time, preference │
+└───────────┬───────────┘
+            │
+            ▼
+┌───────────────────────┐
+│ 8. ORDER BLUEPRINT    │
+│ Suggested order qty   │
+│ in canonical units    │
+└───────────┬───────────┘
+            │
+            ▼
+┌───────────────────────┐
+│ 9. EXECUTION OUTPUT   │
+│ Convert suggestion    │
+│ into supplier packs   │
+└───────────┬───────────┘
+            │
+            ▼
+┌───────────────────────┐
+│ 10. REPORTING         │
+│ Spend, trends,        │
+│ projections, insight  │
+└───────────────────────┘
+
 ---
 
 ## Scale
