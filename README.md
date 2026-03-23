@@ -131,72 +131,43 @@ rebuildable from canonical truth.
 │ Orders, invoices,     │
 │ SKUs, pack sizes, £   │
 └───────────┬───────────┘
-            │
             ▼
 ┌───────────────────────┐
-│ 2. RAW DATA LAYER     │
+│ 2. RAW DATA           │
 │ Store supplier truth  │
 │ exactly as received   │
 └───────────┬───────────┘
-            │
             ▼
 ┌───────────────────────┐
 │ 3. PRODUCT IDENTITY   │
 │ Match rows to stable  │
 │ internal product codes│
 └───────────┬───────────┘
-            │
             ▼
 ┌───────────────────────┐
 │ 4. NORMALISATION      │
 │ Convert packaging to  │
-│ kg / L / unit / m / m2│
+│ canonical units       │
 └───────────┬───────────┘
-            │
             ▼
 ┌───────────────────────┐
-│ 5. CERTIFICATION      │
-│ Only verified mapping │
-│ enters trusted logic  │
-└───────────┬───────────┘
-            │
-            ▼
-┌───────────────────────┐
-│ 6. CANONICAL TRUTH    │
-│ Clean, standardised   │
+│ 5. CERTIFIED TRUTH    │
+│ Verified standardised │
 │ procurement dataset   │
 └───────────┬───────────┘
-            │
             ▼
 ┌───────────────────────┐
-│ 7. BEHAVIOURAL ENGINE │
+│ 7. BEHAVIOURAL LOGIC  │
 │ Cadence, anomalies,   │
 │ lead time, preference │
 └───────────┬───────────┘
-            │
             ▼
 ┌───────────────────────┐
-│ 8. ORDER BLUEPRINT    │
-│ Suggested order qty   │
-│ in canonical units    │
-└───────────┬───────────┘
-            │
-            ▼
-┌───────────────────────┐
-│ 9. EXECUTION OUTPUT   │
-│ Convert suggestion    │
-│ into supplier packs   │
-└───────────┬───────────┘
-            │
-            ▼
-┌───────────────────────┐
-│ 10. REPORTING         │
-│ Spend, trends,        │
+│ 10. OUTPUTS           │
+│ Order suggestions,    │
 │ projections, insight  │
 └───────────────────────┘
 ```
-
-
 
 - Full architectural doctrine → [architecture/constitution.md](architecture/constitution.md)
 - Full topology manifest → [architecture/topology.md](architecture/topology.md)
@@ -229,6 +200,3 @@ Only verified unit mappings enter canonical truth. Unverified mappings are exclu
 | Stakeholder reporting | Power BI |
 
 ---
-
-*Built by a Kitchen Manager who experienced the problem firsthand — 
-and couldn't find a system that solved it, so built one from scratch.*
