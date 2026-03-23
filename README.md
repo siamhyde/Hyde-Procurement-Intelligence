@@ -121,6 +121,8 @@ Each layer has a single responsibility. No layer contaminates
 another. The entire behavioural state is deterministically 
 rebuildable from canonical truth.
 
+---
+
 ## How the system works
 
 ```text
