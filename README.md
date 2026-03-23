@@ -92,6 +92,38 @@ result of that convergence. Hyde needed a proper relational
 backend, SQL-driven transformation logic, and a frontend built 
 on a stable operational model rather than low-code compromise.
 
+---
+
+## Scale
+
+Built on real business data from a live hospitality operation.
+
+| Metric | Value |
+|---|---|
+| Supplier spend processed | £43,000+ |
+| Procurement transactions | 4,700+ |
+| Canonical product entities | 400+ |
+| Packaging-to-canonical unit mappings | 1,134 |
+| Normalisation coverage | 97% |
+
+---
+
+## Architecture
+
+The system is built on a strict layered pipeline:
+```
+RAW → MASTER → NORMALIZED → CERTIFICATION → TRUTH →
+TEMPORAL MODEL → BEHAVIOURAL STATE → BEHAVIOURAL MODELLING →
+BLUEPRINT → EXECUTION → ANALYSIS
+```
+
+Each layer has a single responsibility. No layer contaminates 
+another. The entire behavioural state is deterministically 
+rebuildable from canonical truth.
+
+## How the system works
+
+```text
 ┌───────────────────────┐
 │ 1. SUPPLIER INPUTS    │
 │ Orders, invoices,     │
@@ -160,35 +192,9 @@ on a stable operational model rather than low-code compromise.
 │ Spend, trends,        │
 │ projections, insight  │
 └───────────────────────┘
-
----
-
-## Scale
-
-Built on real business data from a live hospitality operation.
-
-| Metric | Value |
-|---|---|
-| Supplier spend processed | £43,000+ |
-| Procurement transactions | 4,700+ |
-| Canonical product entities | 400+ |
-| Packaging-to-canonical unit mappings | 1,134 |
-| Normalisation coverage | 97% |
-
----
-
-## Architecture
-
-The system is built on a strict layered pipeline:
-```
-RAW → MASTER → NORMALIZED → CERTIFICATION → TRUTH →
-TEMPORAL MODEL → BEHAVIOURAL STATE → BEHAVIOURAL MODELLING →
-BLUEPRINT → EXECUTION → ANALYSIS
 ```
 
-Each layer has a single responsibility. No layer contaminates 
-another. The entire behavioural state is deterministically 
-rebuildable from canonical truth.
+
 
 - Full architectural doctrine → [architecture/constitution.md](architecture/constitution.md)
 - Full topology manifest → [architecture/topology.md](architecture/topology.md)
