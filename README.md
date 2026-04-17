@@ -146,7 +146,9 @@ Documentation and tests:
 
 ## Evidence: dbt Models and Data Quality
 
--- Example: explicit exclusion logic for unresolved records
+Example diagnostic logic from `mart_unresolved_imports`:
+
+```sql
 case
     when r.product_code is null then 'NO_PRODUCT_CODE'
     when c.id is null then 'NO_CANONICAL_RECORD'
@@ -167,7 +169,6 @@ end as exclusion_reason
 - name: canonical_quantity
   tests:
     - not_null
-
 
 ---
 
