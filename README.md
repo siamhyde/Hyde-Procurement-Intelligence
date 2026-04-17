@@ -235,5 +235,10 @@ As the system evolved, it moved from spreadsheet-based tooling to a structured b
 
 Example interface built on the truth-layer dataset, showing canonicalised procurement data across categories and time:
 
-![Category Mix]<img width="1789" height="819" alt="1f9be50be16d5a3ec350ead717d4fd51" src="https://github.com/user-attachments/assets/36d1005c-5d62-422f-b8b5-14ac11d287d2" />
+![Category Mix]
 
+<img width="1789" height="819" alt="1f9be50be16d5a3ec350ead717d4fd51" src="https://github.com/user-attachments/assets/36d1005c-5d62-422f-b8b5-14ac11d287d2" />
+
+Supplier Mix
+
+<img width="1774" height="819" alt="d33c0b6ee99a1abe0182d14f3d289ed8" src="https://github.com/user-attachments/assets/39dabc66-5d4a-4cd7-8f80-af10f049727a" />
