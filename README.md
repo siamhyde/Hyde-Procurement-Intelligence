@@ -1,8 +1,10 @@
 # Hyde Procurement Intelligence
 
-A dbt-based data pipeline built on PostgreSQL (Supabase) that transforms messy supplier invoice data into a tested, deterministic dataset for procurement analysis, with explicit handling of unresolved records.
+A dbt-based data pipeline built on PostgreSQL (Supabase) that transforms fragmented supplier invoice data into a tested, deterministic dataset for procurement analysis, with explicit handling of unresolved records.
 
-Built on real hospitality data, the system standardises product identity, normalises units, and enforces a clear boundary between **trusted data and excluded data.**
+I was a Kitchen Manager in a hospitality environment where procurement decisions were made from memory and habit. This project was built from that environment to replace intuition with a deterministic, rebuildable analytical foundation.
+
+Built on real operational data, the system standardises product identity, normalises units, and enforces a clear boundary between **trusted data and excluded data**.
 
 The focus of the project is not just data transformation, but defining what data is trustworthy and why.
 
