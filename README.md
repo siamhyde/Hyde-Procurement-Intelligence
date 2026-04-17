@@ -1,202 +1,182 @@
 # Hyde Procurement Intelligence
 
-I was the Kitchen Manager, responsible for ordering in an environment 
-where good decisions were expected without good systems underneath them.
+A dbt-based data pipeline built on PostgreSQL (Supabase) that transforms messy supplier invoice data into a tested, deterministic dataset for procurement analysis, with explicit handling of unresolved records.
 
-In hospitality SMBs, that often means operating under uncertainty: 
-trying to make sure the kitchen has enough for the week, avoiding 
-under-ordering, over-ordering, and making fast decisions in an 
-environment that rarely gives you clean signals.
+Built on real hospitality data, the system standardises product identity, normalises units, and enforces a clear boundary between **trusted data and excluded data.**
 
-You are focused on surviving, not optimising.
-
-> Systems are substituted with intuition.
-
-> Decisions are made from memory, habit, and experience.
-
-The data to do better already exists. It is buried across supplier 
-invoices, fragmented by product naming, pack sizes, and 
-supplier-specific formats.
-
-Hyde is the system I built to turn that fragmented purchasing data 
-into a deterministic procurement baseline.
+The focus of the project is not just data transformation, but defining what data is trustworthy and why.
 
 ---
 
-## The Problem
+## What This Project Does
 
-In a kitchen, the absence of a system is felt every week.
+Procurement data in small businesses is typically fragmented:
 
-Something as ordinary as cheddar cheese becomes harder to reason 
-about than it should be. One supplier sells 450g, 500g, or 750g 
-packs. Another sells a 4.5kg block. Which one? How many?
+* inconsistent product naming across suppliers
+* varying pack sizes and units
+* missing or unreliable mappings
 
-You are not thinking about optimisation yet — you are trying not 
-to run out. How long will it last? What if you buy too much? 
-What if you run out on a Saturday service?
+This project builds a structured pipeline that:
 
-With experience, you develop intuition. But intuition is not 
-a system — it is a person.
+* consolidates supplier data into **canonical product identities**
+* converts all quantities into **standard physical units (kg, L, units, etc.)**
+* enforces **data quality rules before data is considered “truth”**
+* surfaces **why records fail to meet those rules**
 
-> In a high-churn industry, that becomes a structural vulnerability.
-
-Each handover risks resetting the kitchen back to intuition. 
-The knowledge does not transfer because it was never captured — 
-it lived in someone's head.
-
-Now multiply that across 400 products, 3 suppliers, 
-and 4,700 transactions.
+The result is a dataset that can be safely used for analysis, forecasting, and decision-making.
 
 ---
 
-## What Hyde Does
+## Pipeline Overview
 
-Hyde was not built to replace the operator. 
-It was built to replace the void beneath them.
+The system is built as a layered dbt pipeline:
 
-An experienced head chef knows things no system can fully capture: 
-the regulars who order the special, the event next Saturday, the 
-supplier whose quality has been slipping. That judgment matters.
+```
+RAW → NORMALIZED → CERTIFIED → TRUTH
+```
 
-What Hyde provides is the part that intuition cannot do reliably: 
-exact consumption baselines, reorder cadence, trend visibility, 
-and a consistent way to tell whether elevated purchasing reflects 
-genuine demand change or short-term noise.
+**RAW**
+Stores supplier data exactly as received (no transformation, full fidelity).
 
-It does not compete with experience. It gives experience something 
-stable to stand on — a deterministic procurement baseline built 
-from accumulated purchasing data.
+**NORMALIZED**
+Applies deterministic mappings to:
 
-When people leave, that baseline does not leave with them. 
-The next operator inherits a foundation instead of starting 
-from zero.
+* resolve product identity
+* convert quantities into canonical units
+
+**CERTIFIED**
+Filters to **only mappings explicitly marked as verified.**
+This acts as a **data quality gate** before anything reaches production use.
+
+**TRUTH**
+Final, trusted dataset:
+
+* fully resolved product identity
+* canonical quantities and units
+* safe for downstream analysis
+
+Any row that does not meet these conditions is excluded from this layer.
 
 ---
 
-## The Build
+## Key Technical Features
 
-Hyde began in Google Sheets, moved to Coda, then Bubble — each 
-version rebuilt from scratch as the limitations of the previous 
-one became clear.
+### Deterministic Transformations
 
-- **Google Sheets:** made collaboration easy, but did not scale.
-- **Coda:** improved the interface, but exposed governance risks: too easy to accidentally edit, break, or delete.
-- **Bubble:** offered more flexibility, but introduced platform and legal constraints that made it the wrong long-term foundation.
+All transformations are implemented as explicit dbt models:
 
-Those pivots clarified what Hyde actually required: stable data 
-governance, deterministic backend logic, and full control over 
-the application layer.
+* no hidden logic
+* no manual overrides in downstream layers
+* fully reproducible from raw inputs
 
-The final stack — PostgreSQL, Supabase, and Next.js — was the 
-result of that convergence. Hyde needed a proper relational 
-backend, SQL-driven transformation logic, and a frontend built 
-on a stable operational model rather than low-code compromise.
+---
+
+### Data Quality Enforcement (dbt tests)
+
+The truth layer enforces strict guarantees:
+
+* `not_null` constraints on key fields
+* referential integrity between products and transactions
+* (optional) controlled unit domains
+
+Only data that passes these checks is exposed as “truth”.
+
+---
+
+### Certification Gate
+
+A key design decision:
+
+> **Unverified mappings are not allowed into the truth layer**
+
+Even if a conversion *could* be inferred, it is excluded unless explicitly verified.
+
+This prevents silent data corruption and ensures:
+
+* consistency over time
+* trust in downstream metrics
+
+---
+
+### Separation of Truth vs Unresolved Data
+
+Instead of forcing all data into a “clean” dataset, the system explicitly separates:
+
+* **Trusted data** → `mart_truth_canonical`
+* **Unresolved data** → `mart_unresolved_imports`
+
+This avoids hidden data loss and makes data quality issues visible.
+
+---
+
+## Diagnostic Layer: Unresolved Imports
+
+The model `mart_unresolved_imports` captures all rows that fail to reach the truth layer and assigns a clear exclusion reason.
+
+Example categories:
+
+* `NO_PRODUCT_CODE`
+* `NO_CANONICAL_RECORD`
+* `UNVERIFIED_MAPPING`
+* `NO_CANONICAL_QUANTITY`
+* `NO_CANONICAL_UNIT`
+
+This turns data quality from a hidden problem into a **queryable dataset**.
+
+This model ensures that excluded data is not lost, but instead becomes part of the system’s observability.
+
+---
+
+## Example Insight
+
+The unresolved layer revealed that most failures were not caused by pipeline errors, but by:
+
+> **missing or unverified unit mappings**
+
+This reflects a common real-world issue:
+
+* data pipelines often fail due to **incomplete domain knowledge**, not technical faults
+
+By separating these cases, the system makes it clear where:
+
+* engineering fixes are needed
+* operational/data governance work is required
 
 ---
 
 ## Scale
 
-Built on real business data from a live hospitality operation.
+Built on real operational data:
 
-| Metric | Value |
-|---|---|
-| Supplier spend processed | £43,000+ |
-| Procurement transactions | 4,700+ |
-| Canonical product entities | 400+ |
-| Packaging-to-canonical unit mappings | 1,134 |
-| Normalisation coverage | 97% |
-
----
-
-## Architecture
-
-The system is built on a strict layered pipeline:
-```
-RAW → MASTER → NORMALIZED → CERTIFICATION → TRUTH →
-TEMPORAL MODEL → BEHAVIOURAL STATE → BEHAVIOURAL MODELLING →
-BLUEPRINT → EXECUTION → ANALYSIS
-```
-
-Each layer has a single responsibility. No layer contaminates 
-another. The entire behavioural state is deterministically 
-rebuildable from canonical truth.
+| Metric                     | Value    |
+| -------------------------- | -------- |
+| Supplier spend processed   | £43,000+ |
+| Procurement transactions   | 4,700+   |
+| Canonical product entities | 400+     |
+| Packaging-to-unit mappings | 1,134    |
+| Normalisation coverage     | 97%      |
 
 ---
 
-## How the system works
+## Context
 
-```text
-┌───────────────────────┐
-│ 1. SUPPLIER INPUTS    │
-│ Orders, invoices,     │
-│ SKUs, pack sizes, £   │
-└───────────┬───────────┘
-            ▼
-┌───────────────────────┐
-│ 2. RAW DATA           │
-│ Store supplier truth  │
-│ exactly as received   │
-└───────────┬───────────┘
-            ▼
-┌───────────────────────┐
-│ 3. PRODUCT IDENTITY   │
-│ Match rows to stable  │
-│ internal product codes│
-└───────────┬───────────┘
-            ▼
-┌───────────────────────┐
-│ 4. NORMALISATION      │
-│ Convert packaging to  │
-│ canonical units       │
-└───────────┬───────────┘
-            ▼
-┌───────────────────────┐
-│ 5. CERTIFIED TRUTH    │
-│ Verified standardised │
-│ procurement dataset   │
-└───────────┬───────────┘
-            ▼
-┌───────────────────────┐
-│ 7. BEHAVIOURAL LOGIC  │
-│ Cadence, anomalies,   │
-│ lead time, preference │
-└───────────┬───────────┘
-            ▼
-┌───────────────────────┐
-│ 10. OUTPUTS           │
-│ Order suggestions,    │
-│ projections, insight  │
-└───────────────────────┘
-```
+This project originated from a real hospitality environment where procurement decisions were made using fragmented supplier data and manual processes.
 
-- Full architectural doctrine → [architecture/constitution.md](architecture/constitution.md)
-- Full topology manifest → [architecture/topology.md](architecture/topology.md)
+The goal was to replace intuition-driven ordering with a reliable, system-generated baseline, built from historical purchasing data.
 
----
-
-## Key Technical Decisions
-
-**Canonical identity over supplier SKUs**  
-Suppliers assign different SKUs to the same physical product. Hyde consolidates these into stable product identities, enabling consistent tracking across suppliers and over time.
-
-**Physical unit normalisation**  
-All quantities resolve to physical base units (kg, L, units, m, m²). Pack abstractions are excluded from canonical truth, preventing silent comparison errors when supplier packaging changes.
-
-**Behavioural ordering over static reorder points**  
-The replenishment layer uses rolling consumption metrics and anomaly detection to distinguish temporary bulk purchases from genuine demand shifts, reducing false baseline recalibration.
-
-**Certification gate**  
-Only verified unit mappings enter canonical truth. Unverified mappings are excluded from production analytics, preventing silent data-quality drift.
+As the system evolved, it moved from spreadsheet-based tooling to a structured backend built on PostgreSQL (Supabase), with dbt used to formalise the transformation pipeline and enforce data quality.
 
 ---
 
 ## Stack
 
-| Layer | Technology |
-|---|---|
-| Data layer | PostgreSQL / Supabase |
-| Analytical logic | SQL views |
-| Operational frontend | Next.js |
-| Stakeholder reporting | Power BI |
+| Layer          | Technology            |
+| -------------- | --------------------- |
+| Data warehouse | PostgreSQL (Supabase) |
+| Transformation | dbt                   |
+| Query layer    | SQL                   |
+| Frontend       | Next.js               |
+| Reporting      | Power BI              |
 
 ---
+
