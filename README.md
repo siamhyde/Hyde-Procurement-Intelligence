@@ -157,7 +157,9 @@ case
     when c.canonical_unit is null then 'NO_CANONICAL_UNIT'
     else 'UNKNOWN_EXCLUSION'
 end as exclusion_reason
+```
 
+```sql
 
 - name: product_code
   tests:
