@@ -158,6 +158,7 @@ case
     else 'UNKNOWN_EXCLUSION'
 end as exclusion_reason
 ```
+Example truth-layer tests from schema.yml:
 
 ```sql
 
