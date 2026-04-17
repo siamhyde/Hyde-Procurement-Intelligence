@@ -249,4 +249,10 @@ Demonstrates how supplier-level spend can be analysed consistently across normal
 
 All metrics shown are derived from the certified truth layer, ensuring consistent product identity and unit normalisation across suppliers.
 
+### Operational Ordering (Derived from Consumption Metrics)
+
+Example operational interface built on rolling consumption metrics derived from the canonical truth dataset.
+
+<img width="1423" height="925" alt="854043a69bca12278e9e7fd7610a1f45(1)" src="https://github.com/user-attachments/assets/d701e5bc-0afc-467b-bab5-ca066dee7f4f" />
+
 ---
