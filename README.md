@@ -151,6 +151,40 @@ All behavioural state is fully **deterministic and rebuildable from the truth la
 
 ---
 
+## Example Output
+
+The following interfaces are built directly on the certified truth layer - all metrics are derived from verified, normalised data.
+
+### Category Mix (Canonicalised View)
+
+Shows procurement spend broken down by standardised product categories over time.
+
+<img width="1789" height="819" alt="1f9be50be16d5a3ec350ead717d4fd51" src="https://github.com/user-attachments/assets/36d1005c-5d62-422f-b8b5-14ac11d287d2" />
+
+---
+
+### Supplier Mix (Consistent Supplier Aggregation)
+
+Demonstrates how supplier-level spend can be analysed consistently across normalised inputs.
+
+<img width="1774" height="819" alt="d33c0b6ee99a1abe0182d14f3d289ed8" src="https://github.com/user-attachments/assets/39dabc66-5d4a-4cd7-8f80-af10f049727a" />
+
+All metrics shown are derived from the certified truth layer, ensuring consistent product identity and unit normalisation across suppliers.
+
+---
+
+### Operational Ordering (Derived from Consumption Metrics)
+
+All ordering recommendations are derived from rolling consumption metrics built on the certified truth layer.
+
+<img width="1423" height="925" alt="854043a69bca12278e9e7fd7610a1f45(1)" src="https://github.com/user-attachments/assets/d701e5bc-0afc-467b-bab5-ca066dee7f4f" />
+
+---
+
+
+
+---
+
 ## Repository Guide
 
 Key dbt models:
@@ -253,32 +287,3 @@ As the system evolved, it moved from spreadsheet-based tooling to a structured b
 
 ---
 
-## Example Output
-
-Example interface built on the truth-layer dataset, showing canonicalised procurement data across categories and time:
-
-### Category Mix (Canonicalised View)
-
-Shows procurement spend broken down by standardised product categories over time.
-
-<img width="1789" height="819" alt="1f9be50be16d5a3ec350ead717d4fd51" src="https://github.com/user-attachments/assets/36d1005c-5d62-422f-b8b5-14ac11d287d2" />
-
----
-
-### Supplier Mix (Consistent Supplier Aggregation)
-
-Demonstrates how supplier-level spend can be analysed consistently across normalised inputs.
-
-<img width="1774" height="819" alt="d33c0b6ee99a1abe0182d14f3d289ed8" src="https://github.com/user-attachments/assets/39dabc66-5d4a-4cd7-8f80-af10f049727a" />
-
-All metrics shown are derived from the certified truth layer, ensuring consistent product identity and unit normalisation across suppliers.
-
----
-
-### Operational Ordering (Derived from Consumption Metrics)
-
-All ordering recommendations are derived from rolling consumption metrics built on the certified truth layer.
-
-<img width="1423" height="925" alt="854043a69bca12278e9e7fd7610a1f45(1)" src="https://github.com/user-attachments/assets/d701e5bc-0afc-467b-bab5-ca066dee7f4f" />
-
----
