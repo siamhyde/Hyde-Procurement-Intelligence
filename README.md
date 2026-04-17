@@ -146,6 +146,8 @@ Documentation and tests:
 
 ## Evidence: dbt Models and Data Quality
 
+These snippets illustrate how data quality rules and failure modes are explicitly modelled within the pipeline.
+
 Example diagnostic logic from `mart_unresolved_imports`:
 
 ```sql
@@ -158,7 +160,7 @@ case
     else 'UNKNOWN_EXCLUSION'
 end as exclusion_reason
 ```
-Example truth-layer tests from schema.yml:
+Example truth-layer tests from `schema.yml`:
 
 ```sql
 
