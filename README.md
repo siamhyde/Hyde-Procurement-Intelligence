@@ -263,16 +263,6 @@ Built on real operational data:
 
 ---
 
-## Context
-
-This project originated from a real hospitality environment where procurement decisions were made using fragmented supplier data and manual processes.
-
-The goal was to replace intuition-driven ordering with a reliable, system-generated baseline, built from historical purchasing data.
-
-As the system evolved, it moved from spreadsheet-based tooling to a structured backend built on PostgreSQL (Supabase), with dbt used to formalise the transformation pipeline and enforce data quality.
-
----
-
 ## Stack
 
 | Layer          | Technology            |
