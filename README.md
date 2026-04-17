@@ -169,7 +169,7 @@ end as exclusion_reason
 - name: canonical_quantity
   tests:
     - not_null
-
+```
 ---
 
 ## Example Insight
