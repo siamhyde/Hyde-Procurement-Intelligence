@@ -129,6 +129,48 @@ This model ensures that excluded data is not lost, but instead becomes part of t
 
 ---
 
+## Repository Guide
+
+Key dbt models:
+
+- `int_canonical_imports` — deterministic unit normalisation  
+- `int_certified_canonical` — certification gate (verified mappings only)  
+- `mart_truth_canonical` — final trusted dataset  
+- `mart_unresolved_imports` — diagnostic layer for excluded rows  
+
+Documentation and tests:
+
+- `schema.yml` — model documentation and data quality tests (`not_null`, `relationships`)
+
+---
+
+## Evidence: dbt Models and Data Quality
+
+-- Example: explicit exclusion logic for unresolved records
+case
+    when r.product_code is null then 'NO_PRODUCT_CODE'
+    when c.id is null then 'NO_CANONICAL_RECORD'
+    when c.verified is distinct from true then 'UNVERIFIED_MAPPING'
+    when c.canonical_quantity is null then 'NO_CANONICAL_QUANTITY'
+    when c.canonical_unit is null then 'NO_CANONICAL_UNIT'
+    else 'UNKNOWN_EXCLUSION'
+end as exclusion_reason
+
+# Example: truth-layer data quality tests
+- name: product_code
+  tests:
+    - not_null
+    - relationships:
+        to: ref('stg_product_master')
+        field: product_code
+
+- name: canonical_quantity
+  tests:
+    - not_null
+
+
+---
+
 ## Example Insight
 
 The unresolved layer revealed that most failures were not caused by pipeline errors, but by:
