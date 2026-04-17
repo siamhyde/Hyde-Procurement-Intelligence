@@ -129,6 +129,28 @@ This model ensures that excluded data is not lost, but instead becomes part of t
 
 ---
 
+## Behavioural Modelling (Beyond Static Aggregation)
+
+On top of the canonical truth layer, the system derives behavioural signals from historical consumption data.
+
+This includes:
+
+- **Rolling consumption metrics (365-day window)**  
+  Used to compute average consumption, ordering frequency, and variability in demand.
+
+- **Supplier preference inference**  
+  Determines the most likely supplier for each product based on historical behaviour.
+
+- **Adaptive cadence modelling**  
+  Ordering frequency adjusts based on observed patterns rather than fixed reorder points.
+
+- **Regime change detection**  
+  Temporary anomalies (e.g. bulk purchases) are separated from sustained shifts in demand, preventing baseline distortion.
+
+All behavioural state is fully **deterministic and rebuildable from the truth layer**, ensuring consistency over time.
+
+---
+
 ## Repository Guide
 
 Key dbt models:
