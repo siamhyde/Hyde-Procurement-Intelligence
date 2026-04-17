@@ -158,7 +158,7 @@ case
     else 'UNKNOWN_EXCLUSION'
 end as exclusion_reason
 
-# Example: truth-layer data quality tests
+
 - name: product_code
   tests:
     - not_null
@@ -169,6 +169,7 @@ end as exclusion_reason
 - name: canonical_quantity
   tests:
     - not_null
+
 ```
 ---
 
