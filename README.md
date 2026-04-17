@@ -129,28 +129,6 @@ This model ensures that excluded data is not lost, but instead becomes part of t
 
 ---
 
-## Behavioural Modelling (Beyond Static Aggregation)
-
-On top of the canonical truth layer, the system derives behavioural signals from historical consumption data.
-
-This includes:
-
-- **Rolling consumption metrics (365-day window)**  
-  Used to compute average consumption, ordering frequency, and variability in demand.
-
-- **Supplier preference inference**  
-  Determines the most likely supplier for each product based on historical behaviour.
-
-- **Adaptive cadence modelling**  
-  Ordering frequency adjusts based on observed patterns rather than fixed reorder points.
-
-- **Regime change detection**  
-  Temporary anomalies (e.g. bulk purchases) are separated from sustained shifts in demand, preventing baseline distortion.
-
-All behavioural state is fully **deterministic and rebuildable from the truth layer**, ensuring consistency over time.
-
----
-
 ## Example Output
 
 The following interfaces are built directly on the certified truth layer - all metrics are derived from verified, normalised data.
@@ -179,7 +157,25 @@ All ordering recommendations are derived from rolling consumption metrics built 
 
 ---
 
+## Behavioural Modelling (Beyond Static Aggregation)
 
+On top of the canonical truth layer, the system derives behavioural signals from historical consumption data.
+
+This includes:
+
+- **Rolling consumption metrics (365-day window)**  
+  Used to compute average consumption, ordering frequency, and variability in demand.
+
+- **Supplier preference inference**  
+  Determines the most likely supplier for each product based on historical behaviour.
+
+- **Adaptive cadence modelling**  
+  Ordering frequency adjusts based on observed patterns rather than fixed reorder points.
+
+- **Regime change detection**  
+  Temporary anomalies (e.g. bulk purchases) are separated from sustained shifts in demand, preventing baseline distortion.
+
+All behavioural state is fully **deterministic and rebuildable from the truth layer**, ensuring consistency over time.
 
 ---
 
@@ -234,13 +230,11 @@ Example truth-layer tests from `schema.yml`:
 
 ## Example Insight
 
-The unresolved layer revealed that most failures were not caused by pipeline errors, but by:
-
-> **missing or unverified unit mappings**
+The unresolved layer showed that most failures were not caused by pipeline errors, but by missing or unverified unit mappings.
 
 This reflects a common real-world issue:
 
-* data pipelines often fail due to **incomplete domain knowledge**, not technical faults
+* data pipelines often fail due to incomplete domain knowledge, not technical implementation
 
 By separating these cases, the system makes it clear where:
 
@@ -263,7 +257,7 @@ Built on real operational data:
 
 ---
 
-## Stack
+## System Stack
 
 | Layer          | Technology            |
 | -------------- | --------------------- |
@@ -271,7 +265,6 @@ Built on real operational data:
 | Transformation | dbt                   |
 | Query layer    | SQL                   |
 | Frontend       | Next.js               |
-| Reporting      | Power BI              |
 
 ---
 
