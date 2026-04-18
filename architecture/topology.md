@@ -463,5 +463,3 @@ Any object not listed:
 * Never truncate outside full system reset
 
 ---
-
-If you want, I can take this one step further and turn it into a proper `README.md` + `/docs/architecture.md` split with diagrams (which would make this much easier for other engineers to onboard into).
