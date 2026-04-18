@@ -3,8 +3,11 @@
 **Production Locked — Behavioural Ordering + Pricing Intelligence Engine**
 
 **System:** Hyde Procurement Intelligence
+
 **Status:** Production Stabilised
+
 **Architecture Type:** Deterministic behavioural procurement engine with invoice-derived pricing intelligence
+
 **Pricing Advisory:** Active — invoice-derived, regime-aware, deterministically rebuildable
 
 ---
