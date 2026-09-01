@@ -19,7 +19,6 @@ The system was designed to organise that operational data into something reliabl
 
 ## Architecture
 
-```text
 Supplier Data
       ↓
 Canonical Procurement Data
@@ -32,16 +31,20 @@ Hyde Assistant
 
 The architecture separates trusted, incomplete, live and simulated states rather than allowing the application or AI layer to silently guess.
 
-What It Can Do
-generate supplier-specific order recommendations
-analyse spend by department, supplier and product
-identify purchasing and price behaviour
-answer procurement questions in natural language
-surface uncertainty when operational data is incomplete
-Stack
+## What It Can Do
+
+- generate supplier-specific order recommendations
+- analyse spend by department, supplier and product
+- identify purchasing and price behaviour
+- answer procurement questions in natural language
+- surface uncertainty when operational data is incomplete
+
+## Stack
 
 PostgreSQL / Supabase · SQL · dbt · Next.js · OpenAI API
 
-Scale
+## Scale
 
 4,700+ transactions · £43k+ supplier spend · 400+ canonical products
+
+
