@@ -51,6 +51,14 @@ Kitchen: £15,486.90
 Combined charged spend: £26,638.51
 Previous 12 months: £25,423.25
 Change: +£1,215.26 (+4.8%)
+
+Main categories:
+1. Produce — £3,386.89
+2. Cakes — £2,353.42
+3. Cheese — £2,308.46
+Other categories — £18,589.74
+
+Based on 2,696 recorded financial events.
       </pre>
     </td>
   </tr>
