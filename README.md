@@ -1,270 +1,47 @@
 # Hyde Procurement Intelligence
 
-A dbt-based data pipeline built on PostgreSQL (Supabase) that transforms fragmented supplier invoice data into a tested, deterministic dataset for procurement analysis, with explicit handling of unresolved records.
+Hyde is a procurement intelligence system for hospitality businesses.
 
-I was a Kitchen Manager in a hospitality environment where procurement decisions were made from memory and habit. This project was built from that environment to replace intuition with a deterministic, rebuildable analytical foundation.
+It turns fragmented supplier purchasing data into structured intelligence for:
 
-Built on real operational data, the system standardises product identity, normalises units, and enforces a clear boundary between **trusted data and excluded data**.
+- ordering
+- spend analysis
+- supplier and product behaviour
+- management decision-support
 
-The focus of the project is not just data transformation, but defining what data is trustworthy and why.
+Users interact with the system through an AI assistant built on governed backend data and tools.
 
----
+## Why I Built It
 
-## What This Project Does
+I built Hyde after working as a Kitchen Manager in an environment where procurement was largely driven by memory, habit and fragmented supplier information.
 
-Procurement data in small businesses is typically fragmented:
+The system was designed to organise that operational data into something reliable enough to support better decisions.
 
-* inconsistent product naming across suppliers
-* varying pack sizes and units
-* missing or unreliable mappings
+## Architecture
 
-This project builds a structured pipeline that:
+```text
+Supplier Data
+      ↓
+Canonical Procurement Data
+      ↓
+Operational Intelligence
+      ↓
+Governed System State
+      ↓
+Hyde Assistant
 
-* consolidates supplier data into **canonical product identities**
-* converts all quantities into **standard physical units (kg, L, units, etc.)**
-* enforces **data quality rules before data is considered “truth”**
-* surfaces **why records fail to meet those rules**
+The architecture separates trusted, incomplete, live and simulated states rather than allowing the application or AI layer to silently guess.
 
-The result is a dataset that can be safely used for analysis, forecasting, and decision-making.
+What It Can Do
+generate supplier-specific order recommendations
+analyse spend by department, supplier and product
+identify purchasing and price behaviour
+answer procurement questions in natural language
+surface uncertainty when operational data is incomplete
+Stack
 
----
+PostgreSQL / Supabase · SQL · dbt · Next.js · OpenAI API
 
-## Pipeline Overview
+Scale
 
-The system is built as a layered dbt pipeline:
-
-```
-RAW → NORMALIZED → CERTIFIED → TRUTH
-```
-
-**RAW**
-Stores supplier data exactly as received (no transformation, full fidelity).
-
-**NORMALIZED**
-Applies deterministic mappings to:
-
-* resolve product identity
-* convert quantities into canonical units
-
-**CERTIFIED**
-Filters to **only mappings explicitly marked as verified.**
-This acts as a **data quality gate** before anything reaches production use.
-
-**TRUTH**
-Final, trusted dataset:
-
-* fully resolved product identity
-* canonical quantities and units
-* safe for downstream analysis
-
-Any row that does not meet these conditions is excluded from this layer.
-
----
-
-## Key Technical Features
-
-### Deterministic Transformations
-
-All transformations are implemented as explicit dbt models:
-
-* no hidden logic
-* no manual overrides in downstream layers
-* fully reproducible from raw inputs
-
----
-
-### Data Quality Enforcement (dbt tests)
-
-The truth layer enforces strict guarantees:
-
-* `not_null` constraints on key fields
-* referential integrity between products and transactions
-* (optional) controlled unit domains
-
-Only data that passes these checks is exposed as “truth”.
-
----
-
-### Certification Gate
-
-A key design decision:
-
-> **Unverified mappings are not allowed into the truth layer**
-
-Even if a conversion *could* be inferred, it is excluded unless explicitly verified.
-
-This prevents silent data corruption and ensures:
-
-* consistency over time
-* trust in downstream metrics
-
----
-
-### Separation of Truth vs Unresolved Data
-
-Instead of forcing all data into a “clean” dataset, the system explicitly separates:
-
-* **Trusted data** → `mart_truth_canonical`
-* **Unresolved data** → `mart_unresolved_imports`
-
-This avoids hidden data loss and makes data quality issues visible.
-
----
-
-## Diagnostic Layer: Unresolved Imports
-
-The model `mart_unresolved_imports` captures all rows that fail to reach the truth layer and assigns a clear exclusion reason.
-
-Example categories:
-
-* `NO_PRODUCT_CODE`
-* `NO_CANONICAL_RECORD`
-* `UNVERIFIED_MAPPING`
-* `NO_CANONICAL_QUANTITY`
-* `NO_CANONICAL_UNIT`
-
-This turns data quality from a hidden problem into a **queryable dataset**.
-
-This model ensures that excluded data is not lost, but instead becomes part of the system’s observability.
-
----
-
-## Example Output
-
-The following interfaces are built directly on the certified truth layer - all metrics are derived from verified, normalised data.
-
-### Category Mix (Canonicalised View)
-
-Shows procurement spend broken down by standardised product categories over time.
-
-<img width="1789" height="819" alt="1f9be50be16d5a3ec350ead717d4fd51" src="https://github.com/user-attachments/assets/36d1005c-5d62-422f-b8b5-14ac11d287d2" />
-
----
-
-### Supplier Mix (Consistent Supplier Aggregation)
-
-Demonstrates how supplier-level spend can be analysed consistently across normalised inputs.
-
-<img width="1774" height="819" alt="d33c0b6ee99a1abe0182d14f3d289ed8" src="https://github.com/user-attachments/assets/39dabc66-5d4a-4cd7-8f80-af10f049727a" />
-
----
-
-### Operational Ordering (Derived from Consumption Metrics)
-
-All ordering recommendations are derived from rolling consumption metrics built on the certified truth layer.
-
-<img width="1423" height="925" alt="854043a69bca12278e9e7fd7610a1f45(1)" src="https://github.com/user-attachments/assets/d701e5bc-0afc-467b-bab5-ca066dee7f4f" />
-
----
-
-## Behavioural Modelling (Beyond Static Aggregation)
-
-On top of the canonical truth layer, the system derives behavioural signals from historical consumption data.
-
-This includes:
-
-- **Rolling consumption metrics (365-day window)**  
-  Used to compute average consumption, ordering frequency, and variability in demand.
-
-- **Supplier preference inference**  
-  Determines the most likely supplier for each product based on historical behaviour.
-
-- **Adaptive cadence modelling**  
-  Ordering frequency adjusts based on observed patterns rather than fixed reorder points.
-
-- **Regime change detection**  
-  Temporary anomalies (e.g. bulk purchases) are separated from sustained shifts in demand, preventing baseline distortion.
-
-All behavioural state is fully **deterministic and rebuildable from the truth layer**, ensuring consistency over time.
-
----
-
-## Repository Guide
-
-Key dbt models:
-
-- `int_canonical_imports` — deterministic unit normalisation  
-- `int_certified_canonical` — certification gate (verified mappings only)  
-- `mart_truth_canonical` — final trusted dataset  
-- `mart_unresolved_imports` — diagnostic layer for excluded rows  
-
-Documentation and tests:
-
-- `schema.yml` — model documentation and data quality tests (`not_null`, `relationships`)
-
----
-
-## Evidence: dbt Models and Data Quality
-
-These snippets illustrate how data quality rules and failure modes are explicitly modelled within the pipeline.
-
-Example diagnostic logic from `mart_unresolved_imports`:
-
-```sql
-case
-    when r.product_code is null then 'NO_PRODUCT_CODE'
-    when c.id is null then 'NO_CANONICAL_RECORD'
-    when c.verified is distinct from true then 'UNVERIFIED_MAPPING'
-    when c.canonical_quantity is null then 'NO_CANONICAL_QUANTITY'
-    when c.canonical_unit is null then 'NO_CANONICAL_UNIT'
-    else 'UNKNOWN_EXCLUSION'
-end as exclusion_reason
-```
-Example truth-layer tests from `schema.yml`:
-
-```sql
-
-- name: product_code
-  tests:
-    - not_null
-    - relationships:
-        to: ref('stg_product_master')
-        field: product_code
-
-- name: canonical_quantity
-  tests:
-    - not_null
-
-```
----
-
-## Example Insight
-
-The unresolved layer showed that most failures were not caused by pipeline errors, but by missing or unverified unit mappings.
-
-This reflects a common real-world issue:
-
-* data pipelines often fail due to incomplete domain knowledge, not technical implementation
-
-By separating these cases, the system makes it clear where:
-
-* engineering fixes are needed
-* operational/data governance work is required
-
----
-
-## Scale
-
-Built on real operational data:
-
-| Metric                     | Value    |
-| -------------------------- | -------- |
-| Supplier spend processed   | £43,000+ |
-| Procurement transactions   | 4,700+   |
-| Canonical product entities | 400+     |
-| Packaging-to-unit mappings | 1,134    |
-| Normalisation coverage     | 97%      |
-
----
-
-## System Stack
-
-| Layer          | Technology            |
-| -------------- | --------------------- |
-| Data warehouse | PostgreSQL (Supabase) |
-| Transformation | dbt                   |
-| Query layer    | SQL                   |
-| Frontend       | Next.js               |
-
----
-
+4,700+ transactions · £43k+ supplier spend · 400+ canonical products
