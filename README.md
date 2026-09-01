@@ -40,7 +40,8 @@ The architecture separates trusted, incomplete, live and simulated states rather
 - answer procurement questions in natural language
 - surface uncertainty when operational data is incomplete
 
-<img width="785" height="954" alt="e3bb9d7b8542e402f9a8243c4651ed7d" src="https://github.com/user-attachments/assets/a0720e1e-0b8a-4e4a-871a-fd24b9c7f01e" />
+<img width="755" height="436" alt="01763cc223a42db905759e6ec1b2d8ed" src="https://github.com/user-attachments/assets/aab21554-d243-4d12-985d-88dd56e9f35c" />
+
 
 <img width="788" height="855" alt="e09e4d7fb90d48be73044867167e8686" src="https://github.com/user-attachments/assets/70b2652d-f626-4f3c-ac5b-005a14aa38a3" />
 
