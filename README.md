@@ -77,7 +77,7 @@ Governed System State
       ↓
 Hyde Assistant
 ```
-The system separates trusted, incomplete, live and simulated states rather than silently guessing.
+The system separates trusted, incomplete, live and simulated states rather than allowing the AI layer to silently guess.
 
 ## Stack
 
