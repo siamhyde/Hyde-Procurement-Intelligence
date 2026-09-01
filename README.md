@@ -85,4 +85,4 @@ PostgreSQL / Supabase · SQL · Next.js · OpenAI API
 
 ## Scale
 
-4,700+ transactions · £43k+ supplier spend · 440+ canonical products
+4,700+ transactions · £43k+ supplier spend · 440 active canonical products
