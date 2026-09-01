@@ -43,7 +43,8 @@ The architecture separates trusted, incomplete, live and simulated states rather
 <img width="755" height="436" alt="01763cc223a42db905759e6ec1b2d8ed" src="https://github.com/user-attachments/assets/aab21554-d243-4d12-985d-88dd56e9f35c" />
 
 
-<img width="788" height="855" alt="e09e4d7fb90d48be73044867167e8686" src="https://github.com/user-attachments/assets/70b2652d-f626-4f3c-ac5b-005a14aa38a3" />
+<img width="724" height="603" alt="4c4641f9bd27366081ce5bf6acb18abf" src="https://github.com/user-attachments/assets/8f3283b9-e8d5-41f9-85ab-de1fe7be0f6a" />
+
 
 
 ## Stack
