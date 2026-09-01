@@ -29,9 +29,8 @@ Operational Intelligence
 Governed System State
       ↓
 Hyde Assistant
-
-The architecture separates trusted, incomplete, live and simulated states rather than allowing the application or AI layer to silently guess.
 ```
+The architecture separates trusted, incomplete, live and simulated states rather than allowing the application or AI layer to silently guess.
 
 ## What It Can Do
 
