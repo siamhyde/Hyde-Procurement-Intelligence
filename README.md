@@ -81,7 +81,7 @@ The system separates trusted, incomplete, live and simulated states rather than 
 
 ## Stack
 
-PostgreSQL / Supabase · SQL · dbt · Next.js · OpenAI API
+PostgreSQL / Supabase · SQL · Next.js · OpenAI API
 
 ## Scale
 
