@@ -19,6 +19,7 @@ The system was designed to organise that operational data into something reliabl
 
 ## Architecture
 
+```text
 Supplier Data
       ↓
 Canonical Procurement Data
@@ -30,6 +31,7 @@ Governed System State
 Hyde Assistant
 
 The architecture separates trusted, incomplete, live and simulated states rather than allowing the application or AI layer to silently guess.
+```
 
 ## What It Can Do
 
