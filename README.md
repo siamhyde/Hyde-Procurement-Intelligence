@@ -34,7 +34,7 @@ The architecture separates trusted, incomplete, live and simulated states rather
 
 ## What It Can Do
 
-- generate supplier-specific order recommendations
+- generate supplier and department specific order recommendations
 - analyse spend by department, supplier and product
 - identify purchasing and price behaviour
 - answer procurement questions in natural language
