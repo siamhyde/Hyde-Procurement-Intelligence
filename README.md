@@ -77,21 +77,6 @@ Governed System State
       ↓
 Hyde Assistant
 ```
-
-Historical Basket Reconstruction
-                ↓
-       User Reviews and Approves
-                ↓
-       Local Execution Helper
-                ↓
-Exact Supplier SKUs + Pack Quantities
-                ↓
-     Automated Basket Preparation
-                ↓
-      Verified Additions and Status
-                ↓
-         Human Trolley Review
-
          
 The system separates trusted, incomplete, live and simulated states rather than allowing the AI layer to silently guess.
 
