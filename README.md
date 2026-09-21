@@ -67,22 +67,47 @@ Based on 2,696 recorded financial events.
 ## Architecture
 
 ```text
-Supplier Data
-      ↓
-Canonical Procurement Data
-      ↓
-Operational Intelligence
-      ↓
-Governed System State
-      ↓
-Hyde Assistant
+Supplier purchasing records
+    ├── Recorded charged spend → Management reporting
+    │
+    └── Canonical product identities + certified unit mappings
+            ├── Purchase cadence → Replenishment + supplier-pack translation
+            └── Paid-cost evidence → Pricing comparisons
+                            ↓
+                 Rebuildable serving state
+
+Reporting + serving interfaces
+    → Allowlisted application tools
+    → Hyde assistant
 ```
-The system separates trusted, incomplete, live and simulated states rather than allowing the AI layer to silently guess.
+
+SQL defines quantities, comparison baselines and ordering rules. Hyde retrieves and explains those results through scoped tools. Supplier-specific live recommendations require checks on availability, observation coverage, reliability and freshness; simulations and historical reconstructions retain their own labels.
+
+Recorded spend and certified physical quantities have separate coverage measures. Paid-cost comparison is currently governed for Brakes; it does not establish the cheapest supplier.
+
+## Ordering Automation
+
+The Ocado integration implements user-approved basket preparation:
+
+```text
+Historical basket reconstruction (90 or 180 days)
+    → User selects Create Ocado basket
+    → Client-scoped execution job
+    → Enrolled local Windows helper
+    → Basket approval, manual login + empty-trolley confirmation
+    → Exact supplier SKUs + backend pack quantities
+    → Verified basket additions + progress returned to Hyde
+    → Trolley opened for human review
+```
+
+The helper preserves the historical source label and stops on an uncertain basket change. Checkout, payment and order placement remain manual. The integration is implemented in the application and helper code; deployment and supervised operation on the target device require separate acceptance.
 
 ## Stack
 
-PostgreSQL / Supabase · SQL · Next.js · OpenAI API
+PostgreSQL / Supabase · SQL · Next.js · TypeScript · OpenAI API · Playwright
 
 ## Scale
 
-4,700+ transactions · £43k+ supplier spend · 440 active canonical products
+**6,093 recorded purchasing line items · £58,280.36 historical charged spend**
+
+Verified in the 27 August 2026 audit snapshot. These are line items, not distinct orders. The certified canonical subset contains 5,964 lines and £56,995.24 of spend. [Metric definitions and verification notes](METRICS.md).
